@@ -1,0 +1,2 @@
+"0","longitudinal_df %>% "
+"0","  ggplot(aes(x = week, y = observations, color = arm, group = id)) + geom_path()"

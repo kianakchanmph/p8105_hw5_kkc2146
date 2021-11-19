@@ -1,7 +1,8 @@
 ---
 title: "Homework 5" 
+Name: "Kiana Chan"
+Date: "11/18/21"
 output: github_document
-Kiana Chan
 ---
 
 ## Problem 0 
@@ -125,5 +126,62 @@ results_df %>%
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
+
+## Problem 2
+
+This zip file contains data from a longitudinal study that included a control arm and an experimental arm. Data for each participant is included in a separate file, and file names include the subject ID and arm.
+
+Create a tidy dataframe containing data from all participants, including the subject ID, arm, and observations over time:
+
+* Start with a dataframe containing all file names; the list.files function will help
+* Iterate over file names and read in data for each subject using purrr::map and saving the result as a new variable in the dataframe
+* Tidy the result; manipulate file names to include control arm and subject ID, make sure weekly observations are “tidy”, and do any other tidying that’s necessary
+* Make a spaghetti plot showing observations on each subject over time, and comment on differences between groups.
+
+```{r}
+data2_df = list.files("./data2")
+
+longitudinal_df = data2_df %>% 
+  purrr::map(~ read_csv(file.path("./data2", .))) %>% 
+  reduce(rbind)
+```
+
+```{r}
+long_df = tibble(path = list.files("applications/documents/GIT for real/homework/Homework_5/data 2")) %>% 
+  mutate(path = str_c("./Homework_5/data2", path),
+         data = map(.x = path, ~read_csv(.x)))
+```
+
+Clean up the data. 
+
+```{r}
+longitudinal_df = long_df %>% 
+  mutate(path = str_replace(path, "\\./data2", "")) %>% 
+  separate(path, into = c("arm", "id"), sep = "\\_") %>% 
+  mutate(id = str_replace(id, "\\.csv", ""),
+         arm = recode (arm, exp = "experimental", con = "control")) %>% 
+  select(id, everything()) %>% 
+  unnest(data) %>% 
+  pivot_longer(
+    week_1:week_8, 
+    names_to = "week", 
+    names_prefix = "week_", 
+    values_to = "observations") %>% 
+  mutate(week = as.numeric(week), value = as.numeric(value))
+longitudinal_df
+```
+
+
+
+results_df = 
+  homicide_df %>% 
+  nest(data = uid:resolution) %>%
+  mutate(
+    test_results = map(data, prop_test_function),
+    tidy_results = map(test_results, broom::tidy)
+  ) %>% 
+  select(city_state, tidy_results) %>%
+  unnest(tidy_results) %>% 
+  select(city_state, estimate, starts_with("conf"))
 
 
