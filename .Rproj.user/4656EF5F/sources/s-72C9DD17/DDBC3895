@@ -3,7 +3,7 @@
     "path": "/Applications/Documents/GIT for real /homework/Homework_5/hw5_kianachan.rmd",
     "project_path": "hw5_kianachan.rmd",
     "type": "r_markdown",
-    "hash": "2068120195",
+    "hash": "2589002856",
     "contents": "",
     "dirty": false,
     "created": 1637012164209.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "48,187",
-        "scrollLine": "29",
+        "cursorPosition": "70,71",
+        "scrollLine": "51",
         "last_setup_crc32": "72C9DD176be27c19"
     },
     "folds": "",
-    "lastKnownWriteTime": 1637282726,
+    "lastKnownWriteTime": 1637283296,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1637282726809,
+    "last_content_update": 1637283296455,
     "read_only": false,
     "read_only_alternatives": []
 }

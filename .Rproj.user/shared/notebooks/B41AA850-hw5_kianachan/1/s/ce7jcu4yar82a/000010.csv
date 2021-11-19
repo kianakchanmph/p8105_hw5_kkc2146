@@ -1,4 +1,4 @@
-"0","homoicide_df = "
+"0","homicide_df = "
 "0","    read.csv(""./data/homicide-data.csv"", na = c("""", ""Unknown"")) %>%"
 "0","               mutate(city_state = str_c(city, state),"
 "0","                 resolution = case_when("
