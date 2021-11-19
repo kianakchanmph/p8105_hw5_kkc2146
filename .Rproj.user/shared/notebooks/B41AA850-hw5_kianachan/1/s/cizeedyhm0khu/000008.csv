@@ -1,0 +1,6 @@
+"0","results_df %>%"
+"0","  mutate(city_state = fct_reorder(city_state, estimate)) %>% "
+"0","  ggplot(aes(x = city_state, y = estimate)) +"
+"0","  geom_point() +"
+"0","  geom_errorbar(aes(ymin = conf.low, ymax = conf.high)) +"
+"0","  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))"
