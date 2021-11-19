@@ -71,11 +71,49 @@ baltimore_test %>%
   broom::tidy() #takes output of prop.test and organizes as a dataframe
 ```
 
-
-
-
-
 Now run prop.test for each of the cities in your dataset, and extract both the proportion of unsolved homicides and the confidence interval for each. Do this within a “tidy” pipeline, making use of purrr::map, purrr::map2, list columns and unnest as necessary to create a tidy dataframe with estimated proportions and CIs for each city.
+
+Iterate across cities! 
+
+First, write a function and test on a few sample cities.
+
+```{r}
+prop_test_function = function(city_df) {
+  
+  city_summary = 
+    city_df %>% 
+  summarize(
+      unsolved = sum(resolution == "unsolved"),
+      n = n())
+      
+  city_test = 
+    prop.test(
+      x = city_summary %>% pull(unsolved),
+      n = city_summary %>% pull(n))
+  
+  return(city_test)
+  }
+prop_test_function(baltimore_df)
+
+homicide_df %>% 
+  filter(city_state == "AlbuquerqueNM") %>% 
+  prop_test_function()
+```
+
+Now, let's iterature across all cities. 
+
+```{r}
+results_df = 
+  homicide_df %>% 
+  nest(data = uid:resolution) %>%
+  mutate(
+    test_results = map(data, prop_test_function),
+    tidy_results = map(test_results, broom::tidy)
+  ) %>% 
+  select(city_state, tidy_results) %>%
+  unnest(tidy_results) %>% 
+  select(city_state, estimate, starts_with("conf"))
+```
 
 Create a plot that shows the estimates and CIs for each city – check out geom_errorbar for a way to add error bars based on the upper and lower limits. Organize cities according to the proportion of unsolved homicides.
 
