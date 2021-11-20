@@ -1,0 +1,2 @@
+"0","iris = map(iris_with_missing[1:5], iris_miss) %>% "
+"0","  bind_rows(c(iris[1:5])) "

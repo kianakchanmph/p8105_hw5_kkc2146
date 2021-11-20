@@ -1,0 +1,7 @@
+"0","iris_miss = function (vector) { if (class(vector) == ""numeric""){vector[is.na(vector)] = mean(vector,na.rm=TRUE)}"
+"0","  if (class(vector) == ""character""){vector[is.na(vector)] = ""virginica""}"
+"0","return (vector)}"
+"0",""
+"0","#Apply function to columns of iris_with_missing using map statement"
+"0","iris_complete = map(iris_with_missing[1:5], iris_miss) %>% "
+"0","  bind_rows(c(iris_complete[1:5])) "

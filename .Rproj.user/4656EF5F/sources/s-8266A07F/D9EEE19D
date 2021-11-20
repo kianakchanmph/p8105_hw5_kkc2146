@@ -1,9 +1,9 @@
 {
     "id": "D9EEE19D",
-    "path": "/Applications/Documents/GIT for real/homework/Homework_5/hw5_kianachan.rmd",
-    "project_path": "hw5_kianachan.rmd",
+    "path": "/Applications/Documents/GIT for real/homework/Homework_5/p8105_hw5_kkc2146.rmd",
+    "project_path": "p8105_hw5_kkc2146.rmd",
     "type": "r_markdown",
-    "hash": "2822885882",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1637417846673.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "210,6",
-        "scrollLine": "190",
+        "cursorPosition": "180,6",
+        "scrollLine": "173",
         "last_setup_crc32": "8266A07Faee12046"
     },
     "folds": "",
-    "lastKnownWriteTime": 1637433532,
+    "lastKnownWriteTime": 1637437280,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1637433532010,
+    "last_content_update": 1637437280164,
     "read_only": false,
     "read_only_alternatives": []
 }

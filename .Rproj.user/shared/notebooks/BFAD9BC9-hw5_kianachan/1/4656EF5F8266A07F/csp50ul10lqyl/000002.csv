@@ -1,0 +1,7 @@
+"0","longitudinal_df %>% "
+"0","  labs("
+"0","    title = ""Control and Experimental Arm Comparisons for 10 Subjects"""
+"0","  )"
+"2","Error in dots_list(..., title = title, subtitle = subtitle, caption = caption,  : 
+  object 'longitudinal_df' not found
+"

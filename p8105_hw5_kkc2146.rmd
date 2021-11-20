@@ -141,7 +141,7 @@ Make a spaghetti plot showing observations on each subject over time, and commen
 
 
 ```{r}
-long_df = tibble(path = list.files("./data/data 2")) %>% 
+longstudy_df = tibble(path = list.files("./data/data 2")) %>% 
   mutate(path = str_c("./data/data 2/", path), 
          data = map(.x = path, ~read_csv(.x)))
 ```
@@ -149,7 +149,7 @@ long_df = tibble(path = list.files("./data/data 2")) %>%
 Clean up the data. 
 
 ```{r}
-longitudinal_df = long_df %>% 
+longitudinal_df = longstudy_df %>% 
   mutate(path = str_replace(path, "\\./data/data 2/", "")) %>% 
   separate(path, into = c("arm", "id"), sep = "\\_") %>% 
   mutate(id = str_replace(id, "\\.csv", ""),
@@ -164,16 +164,21 @@ longitudinal_df = long_df %>%
   mutate(week = as.numeric(week), value = as.numeric(observations))
 longitudinal_df
 ```
-Make Spaghetti Plot
+## Make Spaghetti Plot
 
 ```{r}
 longitudinal_df %>% 
   ggplot(aes(x = week, y = observations, color = arm, group = id)) + geom_path()
 ```
 
+Based on the spaghetti plot, it appears that the experimental arm (yellow) have higher overall levels of observations. In addition, the experiemntal arm appears to be increasing overtime. The control arm appears to have lower overall observational values with no increasing or decreasing trend. 
+
+
 ## Probelm 3
 The code chunk below loads the iris dataset from the tidyverse package and introduces some missing values in each column. The purpose of this problem is to fill in those missing values.
 
+
+```{r}
 library(tidyverse)
 
 set.seed(10)
@@ -181,6 +186,8 @@ set.seed(10)
 iris_with_missing = iris %>% 
   map_df(~replace(.x, sample(1:150, 20), NA)) %>%
   mutate(Species = as.character(Species))
+```
+
 
 There are two cases to address:
 
