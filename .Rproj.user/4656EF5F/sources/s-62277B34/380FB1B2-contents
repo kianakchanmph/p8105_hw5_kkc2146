@@ -11,6 +11,7 @@ This “problem” focuses on structure of your submission, especially the use g
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(rvest)
+library(purrr)
 set.seed(1)
 
 knitr::opts_chunk$set(
@@ -170,5 +171,48 @@ longitudinal_df %>%
   ggplot(aes(x = week, y = observations, color = arm, group = id)) + geom_path()
 ```
 
+## Probelm 3
+The code chunk below loads the iris dataset from the tidyverse package and introduces some missing values in each column. The purpose of this problem is to fill in those missing values.
+
+library(tidyverse)
+
+set.seed(10)
+
+iris_with_missing = iris %>% 
+  map_df(~replace(.x, sample(1:150, 20), NA)) %>%
+  mutate(Species = as.character(Species))
+
+There are two cases to address:
+
+* For numeric variables, you should fill in missing values with the mean of non-missing values
+* For character variables, you should fill in missing values with "virginica"
+
+Write a function that takes a vector as an argument; replaces missing values using the rules defined above; and returns the resulting vector. Apply this function to the columns of iris_with_missing using a map statement.
+
+```{r}
+library(tidyverse)
+
+set.seed(10)
+
+iris_with_missing = iris %>% 
+  map_df(~replace(.x, sample(1:150, 20), NA)) %>%
+  mutate(Species = as.character(Species))
+```
+
+Write a function that fills in missing values with the mean of non-missing values (for numeric variables) and fill in missing values with "virginica" for character variables. 
+
+```{r}
+iris_with_missing = function(vector) {
+  if (!is.numeric(vector)) {
+    vector = replace_na(vector, is.na(vector), mean(vector, na.rm = TRUE))}
+  
+  else if (is.character(vector)) {
+    vector = replace_na(vector, is.na(vector), "virginica")}}
+```
+
+```{r}
+iris_with_missing %>%
+  map_data(~ fill_in(.))
+```
 
 

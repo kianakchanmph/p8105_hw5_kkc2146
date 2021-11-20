@@ -1,0 +1,7 @@
+"0","library(tidyverse)"
+"0",""
+"0","set.seed(10)"
+"0",""
+"0","iris_with_missing = iris %>% "
+"0","  map_df(~replace(.x, sample(1:150, 20), NA)) %>%"
+"0","  mutate(Species = as.character(Species))"

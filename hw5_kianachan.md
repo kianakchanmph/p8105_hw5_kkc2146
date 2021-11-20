@@ -178,3 +178,304 @@ the subject ID, arm, and observations over time:
     other tidying that’s necessary Make a spaghetti plot showing
     observations on each subject over time, and comment on differences
     between groups.
+
+``` r
+long_df = tibble(path = list.files("./data/data 2")) %>% 
+  mutate(path = str_c("./data/data 2/", path), 
+         data = map(.x = path, ~read_csv(.x)))
+```
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    ## Rows: 1 Columns: 8
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## dbl (8): week_1, week_2, week_3, week_4, week_5, week_6, week_7, week_8
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+Clean up the data.
+
+``` r
+longitudinal_df = long_df %>% 
+  mutate(path = str_replace(path, "\\./data/data 2/", "")) %>% 
+  separate(path, into = c("arm", "id"), sep = "\\_") %>% 
+  mutate(id = str_replace(id, "\\.csv", ""),
+         arm = recode (arm, exp = "experimental", con = "control")) %>% 
+  select(id, everything()) %>% 
+  unnest(data) %>% 
+  pivot_longer(
+    week_1:week_8, 
+    names_to = "week", 
+    names_prefix = "week_", 
+    values_to = "observations") %>% 
+  mutate(week = as.numeric(week), value = as.numeric(observations))
+longitudinal_df
+```
+
+    ## # A tibble: 160 × 5
+    ##    id    arm      week observations value
+    ##    <chr> <chr>   <dbl>        <dbl> <dbl>
+    ##  1 01    control     1         0.2   0.2 
+    ##  2 01    control     2        -1.31 -1.31
+    ##  3 01    control     3         0.66  0.66
+    ##  4 01    control     4         1.96  1.96
+    ##  5 01    control     5         0.23  0.23
+    ##  6 01    control     6         1.09  1.09
+    ##  7 01    control     7         0.05  0.05
+    ##  8 01    control     8         1.94  1.94
+    ##  9 02    control     1         1.13  1.13
+    ## 10 02    control     2        -0.88 -0.88
+    ## # … with 150 more rows
+
+Make Spaghetti Plot
+
+``` r
+longitudinal_df %>% 
+  ggplot(aes(x = week, y = observations, color = arm, group = id)) + geom_path()
+```
+
+<img src="hw5_kianachan_files/figure-gfm/unnamed-chunk-8-1.png" width="90%" />
+
+## Probelm 3
+
+The code chunk below loads the iris dataset from the tidyverse package
+and introduces some missing values in each column. The purpose of this
+problem is to fill in those missing values.
+
+library(tidyverse)
+
+set.seed(10)
+
+iris\_with\_missing = iris %&gt;% map\_df(\~replace(.x, sample(1:150,
+20), NA)) %&gt;% mutate(Species = as.character(Species))
+
+There are two cases to address:
+
+-   For numeric variables, you should fill in missing values with the
+    mean of non-missing values
+-   For character variables, you should fill in missing values with
+    “virginica”
+
+Write a function that takes a vector as an argument; replaces missing
+values using the rules defined above; and returns the resulting vector.
+Apply this function to the columns of iris\_with\_missing using a map
+statement.
+
+``` r
+library(tidyverse)
+
+set.seed(10)
+
+iris_with_missing = iris %>% 
+  map_df(~replace(.x, sample(1:150, 20), NA)) %>%
+  mutate(Species = as.character(Species))
+```
+
+Write a function that fills in missing values with the mean of
+non-missing values (for numeric variables) and fill in missing values
+with “virginica” for character variables.
+
+``` r
+iris_miss = function (vector) { if (class(vector) == "numeric"){vector[is.na(vector)] = mean(vector,na.rm=TRUE)}
+  if (class(vector) == "character"){vector[is.na(vector)] = "virginica"}
+return (vector)}
+```
+
+Apply function to columns of iris\_with\_missing using map statement.
+
+``` r
+iris = map(iris_with_missing[1:5], iris_miss) %>% 
+  bind_rows(c(iris[1:5])) 
+```
